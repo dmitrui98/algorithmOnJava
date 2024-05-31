@@ -1,6 +1,5 @@
 package lesson1;
 
-import org.jetbrains.annotations.NotNull;
 import util.ArrayUtil;
 
 import static edu.princeton.cs.algs4.StdOut.printf;
@@ -29,7 +28,6 @@ public class RandomBoolArrayTask {
         println();
     }
 
-    @NotNull
     private static String getValue(boolean bool) {
         String value;
         if (bool) {
