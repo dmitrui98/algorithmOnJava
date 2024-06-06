@@ -2,7 +2,7 @@ package lesson2;
 
 import edu.princeton.cs.algs4.*;
 
-public class Interval2DTest {
+public class A2_Interval2DTest {
 
     public static void main(String[] args) {
         StdDraw.setScale(0, 100);

@@ -1,6 +1,9 @@
 # Algorithm On Java
 
-## Project to practice algorithms by "Алгоритмы на Java" Роберт Седжвик 
+## Project to practice algorithms by "Алгоритмы на Java" Роберт Седжвик
+
+Link to book site:
+https://algs4.cs.princeton.edu/home/
 
 ### Материал для изучения:
 
