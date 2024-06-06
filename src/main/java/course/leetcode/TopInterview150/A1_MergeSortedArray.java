@@ -1,6 +1,6 @@
-package leetcode.TopInterview150;
+package course.leetcode.TopInterview150;
 
-import leetcode.Utils;
+import course.leetcode.Utils;
 
 /**
  * You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n,

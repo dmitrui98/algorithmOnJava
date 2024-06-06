@@ -1,6 +1,6 @@
-package leetcode.TopInterview150;
+package course.leetcode.TopInterview150;
 
-import leetcode.Utils;
+import course.leetcode.Utils;
 
 /**
  * Given an integer array nums and an integer val, remove all occurrences of val in nums in-place.
