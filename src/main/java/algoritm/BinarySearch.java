@@ -1,5 +1,6 @@
 package algoritm;
 
+import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 import edu.princeton.cs.algs4.StdOut;
@@ -18,10 +19,10 @@ public class BinarySearch {
     private static final String PATH = "binarySearch/";
 
     public static void main(String[] args) {
-//        staticTest();
+        staticTest();
          //fileTest(false);
 
-        duplicateTest();
+//        duplicateTest();
     }
 
     private static void duplicateTest() {
@@ -73,10 +74,12 @@ public class BinarySearch {
         for (int element : array) {
             System.out.print(element + ", ");
         }
-        System.out.println();
-        int key = 1;
-        Integer result = search(key, array);
+        int key = 10;
+        System.out.println("\nSearched key: " + key);
+        Counter counter = new Counter("searched keys");
+        Integer result = searchCounter(key, array, counter);
         System.out.println("Result: " + result);
+        StdOut.println(counter);
 
         result = searchRecursive(key, array);
         System.out.println("Result recursive: " + result);
@@ -86,6 +89,23 @@ public class BinarySearch {
         int left = 0;
         int right = sortedArray.length - 1;
         while (left <= right) {
+            int middle = left + (right - left) / 2;
+            if (key < sortedArray[middle]) {
+                right = middle - 1;
+            } else if (key > sortedArray[middle]) {
+                left = middle + 1;
+            } else {
+                return middle;
+            }
+        }
+        return null;
+    }
+
+    public static Integer searchCounter(int key, int[] sortedArray, Counter counter) {
+        int left = 0;
+        int right = sortedArray.length - 1;
+        while (left <= right) {
+            counter.increment();
             int middle = left + (right - left) / 2;
             if (key < sortedArray[middle]) {
                 right = middle - 1;

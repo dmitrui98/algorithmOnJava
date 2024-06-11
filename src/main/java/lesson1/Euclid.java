@@ -14,12 +14,12 @@ public class Euclid {
         println(String.format("НОД(%d, %d): %d", a, b, greatestCommonDivider(a, b)));
     }
 
-    private static int greatestCommonDivider(int x, int y) {
-        printf("x = %-5d; y = %-5d\n", x, y);
+    public static long greatestCommonDivider(long x, long y) {
+        //printf("x = %-5d; y = %-5d\n", x, y);
         if (y == 0) {
             return x;
         }
-        int reminder = x % y;
+        long reminder = x % y;
         return greatestCommonDivider(y, reminder);
     }
 }

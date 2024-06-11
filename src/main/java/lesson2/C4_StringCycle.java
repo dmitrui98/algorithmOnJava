@@ -15,11 +15,11 @@ import java.awt.*;
  */
 public class C4_StringCycle {
     public static void main(String[] args) {
-        StdOut.print("Введите первую строку: ");
+        StdOut.print("Введите первую строку: "); // ACTGACG
         String s = StdIn.readLine();
-        StdOut.print("Введите вторую строку: ");
+        StdOut.print("Введите вторую строку: "); // TGACGAC
         String t = StdIn.readLine();
-        boolean isCycle = false;
+        boolean isCycle = (s.length() == t.length()) && (s.concat(s).contains(t));
 
         String answer;
         if (isCycle) {
