@@ -6,7 +6,10 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.Stack;
 import java.util.stream.Stream;
 
+import static util.BaseConstants.END_MARKER;
+
 /**
+ * Листинг 1.3.4
  * Двухстековый алгоритм Дейкстры для вычисления выражения
  * ( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )
  * 101.0
@@ -22,7 +25,7 @@ public class A2_Evaluate {
         String s;
         while (true) {
             s = StdIn.readString();
-            if (s.equals("[")) {
+            if (s.equals(END_MARKER)) {
                 break;
             }
             Operand operand = Operand.getEnum(s);

@@ -1,20 +1,24 @@
-import edu.princeton.cs.algs4.StaticSETofInts;
-import edu.princeton.cs.algs4.StdIn;
+import common.data.structure.ResizingArrayStack;
 import edu.princeton.cs.algs4.StdOut;
-import edu.princeton.cs.algs4.Vector;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static edu.princeton.cs.algs4.StdOut.*;
+import java.util.Stack;
 
 public class Main {
 
     public static void main(String[] args) {
-        // 1.2.6 - to be continued
+        // 1.3.12 - to be continued
 
+
+
+        ResizingArrayStack<String>[] a = new ResizingArrayStack[10];
+        a[0] = new ResizingArrayStack<>(15);
+        for (ResizingArrayStack<String> strings : a) {
+
+        }
         String s = reverse("second1");
         StdOut.print(s);
+        Stack<String> stack = new Stack<>();
+
     }
 
     public static String reverse(String s) {
