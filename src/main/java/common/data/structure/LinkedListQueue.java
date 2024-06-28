@@ -1,7 +1,5 @@
 package common.data.structure;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Iterator;
 
 /**
@@ -49,7 +47,6 @@ public class LinkedListQueue<T> implements Iterable<T> {
         return item;
     }
 
-    @NotNull
     @Override
     public Iterator<T> iterator() {
         return new QueueIteratorInner();

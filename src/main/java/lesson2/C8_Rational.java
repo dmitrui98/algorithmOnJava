@@ -2,7 +2,6 @@ package lesson2;
 
 import edu.princeton.cs.algs4.StdOut;
 import lesson1.Euclid;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Операции над рациональными числами
@@ -62,7 +61,7 @@ public class C8_Rational implements Comparable<C8_Rational> {
     }
 
     @Override
-    public int compareTo(@NotNull C8_Rational o) {
+    public int compareTo(C8_Rational o) {
         long current = numerator * o.denominator;
         long other = denominator * o.numerator;
         if (current < other) return -1;

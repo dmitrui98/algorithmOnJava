@@ -1,7 +1,5 @@
 package common.data.structure;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Iterator;
 
 /**
@@ -47,7 +45,6 @@ public class ResizingArrayStack<T> implements Iterable<T> {
         return a.length;
     }
 
-    @NotNull
     @Override
     public Iterator<T> iterator() {
         return new ReverseArrayIterator();

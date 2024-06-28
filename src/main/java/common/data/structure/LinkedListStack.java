@@ -1,7 +1,5 @@
 package common.data.structure;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Iterator;
 
 /**
@@ -46,7 +44,6 @@ public class LinkedListStack<T> implements Iterable<T> {
         return first.item;
     }
 
-    @NotNull
     @Override
     public Iterator<T> iterator() {
         return new LinkedListStackIterator();
