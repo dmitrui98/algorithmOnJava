@@ -1,7 +1,7 @@
 package lesson3;
 
 
-import common.data.structure.LinkedListQueue;
+import common.data.structure.queue.LinkedListQueue;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 

@@ -1,6 +1,6 @@
 package lesson3;
 
-import common.data.structure.ResizingArrayStack;
+import common.data.structure.stack.ResizingArrayStack;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 

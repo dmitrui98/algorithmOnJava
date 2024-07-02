@@ -1,4 +1,4 @@
-package common.data.structure;
+package common.data.structure.stack;
 
 public class FixedCapacityStack<T> {
     private final T[] a;

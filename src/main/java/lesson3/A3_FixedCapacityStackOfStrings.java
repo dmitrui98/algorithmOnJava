@@ -1,6 +1,6 @@
 package lesson3;
 
-import common.data.structure.FixedCapacityStackOfStrings;
+import common.data.structure.stack.FixedCapacityStackOfStrings;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 

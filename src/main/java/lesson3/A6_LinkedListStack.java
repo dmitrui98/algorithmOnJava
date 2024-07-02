@@ -1,6 +1,6 @@
 package lesson3;
 
-import common.data.structure.LinkedListStack;
+import common.data.structure.stack.LinkedListStack;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 

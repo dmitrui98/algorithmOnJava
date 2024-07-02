@@ -1,4 +1,4 @@
-package common.data.structure;
+package common.data.structure.stack;
 
 public class FixedCapacityStackOfStrings {
     private final String[] a;

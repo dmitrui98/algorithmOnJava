@@ -1,4 +1,6 @@
-package common.data.structure;
+package common.data.structure.stack;
+
+import common.data.structure.Node;
 
 import java.util.Iterator;
 

@@ -1,4 +1,4 @@
-package common.data.structure;
+package common.data.structure.stack;
 
 import java.util.Iterator;
 
@@ -60,11 +60,6 @@ public class ResizingArrayStack<T> implements Iterable<T> {
 
     private class ReverseArrayIterator implements Iterator<T> {
         private int i = n;
-
-        @Override
-        public void remove() {
-            // do nothing
-        }
 
         @Override
         public boolean hasNext() {
