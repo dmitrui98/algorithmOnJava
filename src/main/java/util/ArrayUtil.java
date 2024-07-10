@@ -64,4 +64,11 @@ public class ArrayUtil {
         }
         println();
     }
+
+    public static void print(Iterable<?> list) {
+        for (Object o : list) {
+            StdOut.print(o + " ");
+        }
+        StdOut.println();
+    }
 }
