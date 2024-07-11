@@ -184,30 +184,59 @@ public class CustomLinkedList<T> implements Iterable<T> {
      * Reverse list and return first node of result list
      * Exercise 1.3.30
      */
-    public Node<T> reverseList() {
+    public Node<T> reverseListCustom() {
         if (first == null) {
             return null;
         }
         Node<T> current = first;
         Node<T> c;
+        Node<T> start = null;
         Node<T> swapped = null;
-        Node<T> start;
-        Node<T> prev;
-        while (current != null) {
+        while (current != swapped && current.next != null) {
             c = current;
-            start = current.next;
-            prev = null;
+            Node<T> prev = null;
             while (c.next != swapped) {
-                swap(c, c.next);
                 if (prev != null) {
                     prev.next = c.next;
+                } else {
+                    start = c.next;
                 }
                 prev = c.next;
+                swap(c, c.next);
             }
-            swapped = current;
+            swapped = c;
             current = start;
         }
-        return null;
+        first = current;
+        return first;
+    }
+
+    public Node<T> reverseList() {
+        Node<T> start = first; // первый узел (остатка) первого списка
+        Node<T> reverse = null; // первый узел результирующего обращенного списка
+        while (start != null) {
+            Node<T> next = start.next; // второй узел (остатка) первого списка
+            start.next = reverse;
+            reverse = start;
+            start = next;
+        }
+        first = reverse;
+        return first;
+    }
+
+    public Node<T> reverseListRecursive(Node<T> first) {
+        if (first == null) {
+            return null;
+        }
+        if (first.next == null) {
+            return first;
+        }
+        Node<T> second = first.next;
+        Node<T> rest = reverseListRecursive(second);
+        second.next = first;
+        first.next = null;
+        this.first = rest;
+        return rest;
     }
 
     private void swap(Node<T> first, Node<T> second) {

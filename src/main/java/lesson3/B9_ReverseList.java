@@ -1,6 +1,8 @@
 package lesson3;
 
+import common.data.structure.Node;
 import common.data.structure.list.CustomLinkedList;
+import edu.princeton.cs.algs4.StdOut;
 
 import static util.ArrayUtil.print;
 
@@ -13,12 +15,39 @@ public class B9_ReverseList {
     public static void main(String[] args) {
         B9_ReverseList instance = new B9_ReverseList();
         instance.testReverseList();
+        instance.testReverseListRecursive();
     }
 
     private void testReverseList() {
         CustomLinkedList<String> list = getListOrdered();
         print(list);
+        Node<String> firstReversed = list.reverseList();
+        StdOut.println("First reversed: " + firstReversed);
+        print(list);
+
+        list = new CustomLinkedList<>();
+        list.addLast("10");
         list.reverseList();
+        print(list);
+        list.addLast("20");
+        list.reverseList();
+        print(list);
+    }
+
+    private void testReverseListRecursive() {
+        StdOut.println("###Recursive###");
+        CustomLinkedList<String> list = getListOrdered();
+        print(list);
+        Node<String> firstReversed = list.reverseListRecursive(list.getFirst());
+        StdOut.println("First reversed: " + firstReversed);
+        print(list);
+
+        list = new CustomLinkedList<>();
+        list.addLast("10");
+        list.reverseListRecursive(list.getFirst());
+        print(list);
+        list.addLast("20");
+        list.reverseListRecursive(list.getFirst());
         print(list);
     }
 
