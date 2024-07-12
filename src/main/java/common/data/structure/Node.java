@@ -14,6 +14,6 @@ public class Node<T> {
     @Override
     public String toString() {
         String n = next == null ? "null" : next.item.toString();
-        return String.format("Node(item=%s); next: %s", item, n);
+        return String.format("Node(item=%s), next: %s", item, n);
     }
 }
