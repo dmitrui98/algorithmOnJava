@@ -3,6 +3,7 @@ package course.ulbiTV;
 import util.ArrayUtil;
 
 /**
+ * Сортировка выбором
  * Сложность O(1/2*n^2) = O(n^2)
  */
 public class A3_SelectionSort {
