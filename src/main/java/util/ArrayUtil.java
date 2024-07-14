@@ -3,6 +3,11 @@ package util;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static edu.princeton.cs.algs4.StdOut.printf;
 import static edu.princeton.cs.algs4.StdOut.println;
 
@@ -60,7 +65,7 @@ public class ArrayUtil {
 
     public static void printArray(int[] a) {
         for (int anInt : a) {
-            printf("%3s", anInt);
+            printf("%4s", anInt);
         }
         println();
     }
@@ -70,5 +75,13 @@ public class ArrayUtil {
             StdOut.print(o + " ");
         }
         StdOut.println();
+    }
+
+    public static int[] toIntArray(Collection<Integer> collection) {
+        return collection.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    public static List<Integer> toList(int[] array) {
+        return Arrays.stream(array).boxed().collect(Collectors.toList());
     }
 }
