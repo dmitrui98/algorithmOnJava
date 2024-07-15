@@ -11,11 +11,10 @@ public class A1_ThreadTest {
         eggVoice = new EggVoice();
         ChickenVoice chickenVoice = new ChickenVoice();
         System.out.println("Спор начат...");
-
         eggVoice.start();
         chickenVoice.start();
         try {
-            eggVoice.join();
+            eggVoice.join(1000);
             chickenVoice.join();
             System.out.println("Спор закончен!");
         } catch (InterruptedException ex) {}
