@@ -3,6 +3,9 @@ package course.leetcode.TopInterview150;
 import course.leetcode.Utils;
 
 /**
+ * ### Not solved :-(
+ * ### Need to think
+ *
  * 122. Best Time to Buy and Sell Stock II
  *
  * You are given an integer array prices where prices[i] is the price of a given stock on the i-th day.
@@ -38,6 +41,9 @@ public class A8_BuyAndSell2 {
         instance.go();
         instance.go1();
         instance.go2();
+        instance.go3();
+        instance.go4();
+        instance.go5();
     }
 
     /**
@@ -76,8 +82,80 @@ public class A8_BuyAndSell2 {
         Utils.printArray(mas);
     }
 
+    /**
+     * Input: nums = [7,2,80,5,1,70]
+     * Output: 147
+     */
+    private void go3() {
+        System.out.println("Тест кейс: ");
+        int[] mas = {7,2,80,5,1,70};
+        int k = maxProfit(mas);
+        System.out.println("k: " + k);
+        Utils.printArray(mas);
+    }
+
+    /**
+     * Input: nums = [7,1,2,3,80,4]
+     * Output: 79
+     */
+    private void go4() {
+        System.out.println("Тест кейс: ");
+        int[] mas = {7,1,2,3,80,4};
+        int k = maxProfit(mas);
+        System.out.println("k: " + k);
+        Utils.printArray(mas);
+    }
+
+    /**
+     * Input: nums = [7,1,2,4,80,4]
+     * Output: 79
+     */
+    private void go5() {
+        System.out.println("Тест кейс: ");
+        int[] mas = {7,1,2,4,80,4};
+        int k = maxProfit(mas);
+        System.out.println("k: " + k);
+        Utils.printArray(mas);
+    }
+
+    /**
+     * We can use a separate state to tell if we can buy or sell.
+     * If we sell/buy then we add its cost to the ans and change the value of the
+     * 'canbuy' variable when calling the previous state and and if we dont
+     * buy then we just call the value of the previous state .
+     * we take the max of both values.
+     * Similarly we calculate for other value of canbuy
+     *
+     * dp[i][canbuy]->states the maximum profit we can get from i..n-1 if our current
+     * index is i and our current state if we can buy or sell is represented by 'canbuy'
+     */
     public int maxProfit(int[] prices) {
+        int[][] profitArray = new int[prices.length + 1][2];
+        for (int i = prices.length - 1; i >= 0; i--) {
+           for (int canbuy = 0; canbuy <= 1; canbuy++) {
+               if (canbuy == 1) {
+                   profitArray[i][canbuy] = Math.max(profitArray[i + 1][0] - prices[i], profitArray[i + 1][1]);
+               } else {
+                   profitArray[i][canbuy] = Math.max(profitArray[i + 1][1] + prices[i], profitArray[i + 1][0]);
+               }
+           }
+        }
+        return profitArray[0][1];
+    }
+
+
+    /**
+     * Жадный алгоритм: как доказать, что его можно применять????
+     */
+    public int maxProfitGreetingAlgo(int[] prices) {
+        int start = prices[0];
         int profit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > start) {
+                profit += prices[i] - start;
+            }
+            start = prices[i];
+        }
         return profit;
     }
 }
