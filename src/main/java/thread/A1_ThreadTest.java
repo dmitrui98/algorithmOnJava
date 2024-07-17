@@ -1,5 +1,7 @@
 package thread;
 
+import java.util.concurrent.Callable;
+
 public class A1_ThreadTest {
     EggVoice eggVoice;
 
@@ -18,6 +20,20 @@ public class A1_ThreadTest {
             chickenVoice.join();
             System.out.println("Спор закончен!");
         } catch (InterruptedException ex) {}
+    }
+
+    private void callableTest() throws Exception {
+        Callable<String> a = () -> {
+            if (1 == 2) {
+                return "a";
+            } else {
+                return "b";
+            }
+        };
+
+        String call = a.call(); // как возвращает значение, если мы находимся в другом потоке???
+        // ответ: callable запускается в другом потоке через ExecutorService
+        System.out.println(call);
     }
 
     class EggVoice extends Thread
