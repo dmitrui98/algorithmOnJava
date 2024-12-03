@@ -1,9 +1,5 @@
 package course.leetcode.TopInterview150;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
 /**
  * 13. Roman to Integer
  * Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -36,15 +32,6 @@ import java.util.Set;
  * It is guaranteed that s is a valid roman numeral in the range [1, 3999].
  */
 public class A11_RomanToInteger {
-    private static final Map<Character, Integer> map = Map.ofEntries(
-        Map.entry('I', 1),
-        Map.entry('V', 5),
-        Map.entry('X', 10),
-        Map.entry('L', 50),
-        Map.entry('C', 100),
-        Map.entry('D', 500),
-        Map.entry('M', 1000)
-    );
 
     public static void main(String[] args) {
         new A11_RomanToInteger().go();
@@ -76,16 +63,16 @@ public class A11_RomanToInteger {
             char current = s.charAt(i);
             char next = s.charAt(i + 1);
             if (isNeedSubtract(current, next)) {
-                result += map.get(next) - map.get(current);
+                result += convertRoman(next) - convertRoman(current);
                 i++;
             } else {
-                result += map.get(current);
+                result += convertRoman(current);
             }
             i++;
         }
         // handle last element
         if (i < s.length()) {
-            result += map.get(s.charAt(i));
+            result += convertRoman(s.charAt(i));
         }
         return result;
     }
@@ -98,5 +85,18 @@ public class A11_RomanToInteger {
             return true;
         }
         return (next == 'D' || next == 'M') && current == 'C';
+    }
+
+    private int convertRoman(char c) {
+        return switch (c) {
+            case 'I' -> 1;
+            case 'V' -> 5;
+            case 'X' -> 10;
+            case 'L' -> 50;
+            case 'C' -> 100;
+            case 'D' -> 500;
+            case 'M' -> 1000;
+            default -> 0;
+        };
     }
 }
