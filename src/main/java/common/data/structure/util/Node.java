@@ -1,4 +1,4 @@
-package common.data.structure;
+package common.data.structure.util;
 
 public class Node<T> {
     public T item;

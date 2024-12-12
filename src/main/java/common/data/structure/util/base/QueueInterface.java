@@ -1,8 +1,9 @@
-package common.data.structure.queue;
+package common.data.structure.util.base;
 
 
-public interface Queue<T> extends Iterable<T> {
+public interface QueueInterface<T> extends Iterable<T> {
     boolean isEmpty();
+
     int size();
 
     /**

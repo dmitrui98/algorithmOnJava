@@ -1,7 +1,7 @@
 package common.data.structure.list;
 
-import common.data.structure.DoubleNode;
-
+import common.data.structure.util.DoubleNode;
+import common.data.structure.util.iterator.LinkedIterator;
 import java.util.Iterator;
 
 public class CustomDoubleLinkedList<T> implements Iterable<T> {
@@ -132,22 +132,6 @@ public class CustomDoubleLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new IteratorInner();
-    }
-
-    private class IteratorInner implements Iterator<T> {
-        private DoubleNode<T> current = first;
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public T next() {
-            T forReturn = current.item;
-            current = current.next;
-            return forReturn;
-        }
+        return new LinkedIterator<>(first);
     }
 }

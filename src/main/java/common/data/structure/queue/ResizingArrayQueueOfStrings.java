@@ -1,8 +1,9 @@
 package common.data.structure.queue;
 
+import common.data.structure.util.base.QueueInterface;
 import java.util.Iterator;
 
-public class ResizingArrayQueueOfStrings implements Queue<String> {
+public class ResizingArrayQueueOfStrings implements QueueInterface<String> {
     String[] a;
     int firstIndex = 0;
     int lastIndex = 0;

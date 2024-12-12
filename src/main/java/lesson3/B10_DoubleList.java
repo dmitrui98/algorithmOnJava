@@ -1,9 +1,8 @@
 package lesson3;
 
-import common.data.structure.DoubleNode;
 import common.data.structure.list.CustomDoubleLinkedList;
+import common.data.structure.util.DoubleNode;
 import edu.princeton.cs.algs4.StdOut;
-
 import static util.ArrayUtil.print;
 
 /**

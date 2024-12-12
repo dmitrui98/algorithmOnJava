@@ -1,7 +1,8 @@
 package common.data.structure.list;
 
-import common.data.structure.Node;
-
+import common.data.structure.util.Node;
+import common.data.structure.util.iterator.LinkedIterator;
+import common.data.structure.util.iterator.LinkedNodeIterator;
 import java.util.Iterator;
 
 public class CustomLinkedList<T> implements Iterable<T> {
@@ -246,42 +247,10 @@ public class CustomLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new IteratorInner();
+        return new LinkedIterator<>(first);
     }
 
     public Iterator<Node<T>> iteratorNode() {
-        return new IteratorInnerNode();
-    }
-
-    private class IteratorInner implements Iterator<T> {
-        private Node<T> current = first;
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public T next() {
-            T item = current.item;
-            current = current.next;
-            return item;
-        }
-    }
-
-    private class IteratorInnerNode implements Iterator<Node<T>> {
-        private Node<T> current = first;
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public Node<T> next() {
-            Node<T> forReturn = current;
-            current = current.next;
-            return forReturn;
-        }
+        return new LinkedNodeIterator<>(first);
     }
 }

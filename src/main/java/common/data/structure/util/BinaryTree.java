@@ -1,4 +1,4 @@
-package common.data.structure;
+package common.data.structure.util;
 
 public class BinaryTree<T extends Comparable<T>> {
     public TreeNode<T> root;

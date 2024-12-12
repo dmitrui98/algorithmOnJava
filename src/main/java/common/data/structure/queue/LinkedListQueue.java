@@ -1,13 +1,14 @@
 package common.data.structure.queue;
 
-import common.data.structure.Node;
-
+import common.data.structure.util.Node;
+import common.data.structure.util.base.QueueInterface;
+import common.data.structure.util.iterator.LinkedIterator;
 import java.util.Iterator;
 
 /**
  * Листинг 1.3.8. Алгоритм 1.3. Очередь
  */
-public class LinkedListQueue<T> implements Queue<T> {
+public class LinkedListQueue<T> implements QueueInterface<T> {
     private Node<T> first; // самый старый узел
     private Node<T> last; // самый свежий узел
     private int n;
@@ -49,22 +50,6 @@ public class LinkedListQueue<T> implements Queue<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new QueueIteratorInner();
-    }
-
-    private class QueueIteratorInner implements Iterator<T> {
-        private Node<T> current = first;
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public T next() {
-            T item = current.item;
-            current = current.next;
-            return item;
-        }
+        return new LinkedIterator<>(first);
     }
 }

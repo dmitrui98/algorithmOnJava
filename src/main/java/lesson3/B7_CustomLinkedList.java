@@ -1,9 +1,8 @@
 package lesson3;
 
-import common.data.structure.Node;
 import common.data.structure.list.CustomLinkedList;
+import common.data.structure.util.Node;
 import edu.princeton.cs.algs4.StdOut;
-
 import static util.ArrayUtil.print;
 
 /**

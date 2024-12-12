@@ -1,6 +1,6 @@
 package course.ulbiTV;
 
-import common.data.structure.BinaryTree;
+import common.data.structure.util.BinaryTree;
 
 public class A9_BinaryTree {
 

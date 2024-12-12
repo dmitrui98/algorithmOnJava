@@ -1,7 +1,7 @@
 package common.data.structure.stack;
 
-import common.data.structure.Node;
-
+import common.data.structure.util.Node;
+import common.data.structure.util.iterator.LinkedIterator;
 import java.util.Iterator;
 
 /**
@@ -48,22 +48,6 @@ public class LinkedListStack<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new LinkedListStackIterator();
-    }
-
-    private class LinkedListStackIterator implements Iterator<T> {
-        private Node<T> current = first;
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public T next() {
-            T item = current.item;
-            current = current.next;
-            return item;
-        }
+        return new LinkedIterator<>(first);
     }
 }

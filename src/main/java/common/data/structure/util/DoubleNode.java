@@ -1,15 +1,14 @@
-package common.data.structure;
+package common.data.structure.util;
 
-public class DoubleNode<T> {
-    public T item;
-    public DoubleNode<T> next;
+public class DoubleNode<T> extends Node<T> {
     public DoubleNode<T> prev;
+    public DoubleNode<T> next;
 
     public DoubleNode() {
     }
 
     public DoubleNode(T item) {
-        this.item = item;
+        super(item);
     }
 
     @Override
@@ -18,9 +17,4 @@ public class DoubleNode<T> {
         String p = prev == null ? "null" : prev.item.toString();
         return String.format("Node(item=%s), prev: %s, next: %s", item, p, n);
     }
-
-//    @Override
-//    public String toString() {
-//        return item.toString();
-//    }
 }
