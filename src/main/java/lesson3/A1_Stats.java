@@ -16,7 +16,7 @@ import edu.princeton.cs.algs4.StdOut;
  * 81
  * 101
  * 90
- *
+ * <br/>
  * Result:
  * Среднее: 100.60
  * Среднеквадратичное откланение: 10.51
@@ -45,6 +45,5 @@ public class A1_Stats {
 
         StdOut.printf("Среднее: %.2f\n", mean);
         StdOut.printf("Среднеквадратичное откланение: %.2f\n", std);
-
     }
 }

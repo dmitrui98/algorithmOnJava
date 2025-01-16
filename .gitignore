@@ -2,3 +2,5 @@
 /out/
 .idea
 /algorithmOnJava.iml
+/data/common/**
+/data/lesson4/**

@@ -5,18 +5,14 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 import edu.princeton.cs.algs4.StdOut;
 import util.ArrayUtil;
-
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.Arrays;
-
 import static edu.princeton.cs.algs4.StdOut.printf;
 import static edu.princeton.cs.algs4.StdOut.println;
 
 public class BinarySearch {
 
-    private static final String PATH = "binarySearch/";
+    private static final String PATH = "data/binarySearch/";
 
     public static void main(String[] args) {
         staticTest();

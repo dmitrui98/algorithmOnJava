@@ -2,12 +2,10 @@ package util;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import static edu.princeton.cs.algs4.StdOut.printf;
 import static edu.princeton.cs.algs4.StdOut.println;
 
@@ -38,10 +36,10 @@ public class ArrayUtil {
         return a;
     }
 
-    public static int[] getIntRandomArray(int n) {
+    public static int[] getIntRandomArray(int n, int borderLeft, int borderRight) {
         int[] a = new int[n];
         for (int i = 0; i < n; i++) {
-            a[i] = StdRandom.uniformInt(100);
+            a[i] = StdRandom.uniformInt(borderLeft, borderRight);
         }
         return a;
     }
@@ -65,7 +63,7 @@ public class ArrayUtil {
 
     public static void printArray(int[] a) {
         for (int anInt : a) {
-            printf("%4s", anInt);
+            printf("%8s", anInt);
         }
         println();
     }
