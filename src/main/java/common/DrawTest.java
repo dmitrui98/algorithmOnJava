@@ -9,7 +9,7 @@ public class DrawTest {
 
     public static void main(String[] args) {
 //         drawFunctions(200);
-         drawRandomArray(500, true);
+         drawRandomArray(10, false);
 //        test();
     }
 
@@ -22,9 +22,11 @@ public class DrawTest {
         StdDraw.circle(0.5, 0.5, 0.5);
         StdDraw.point(0.5, 0.5);
         StdDraw.square(0.5, 0.5, 0.2);
+        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.text(0.5, 0.1, "Some text");
 
-        double[] x = {0.1, 0.2, 0.3, 0.5};
-        double[] y = {0.1, 0.2, 0.3, 0.6};
+        double[] x = {0.4, 0.6, 0.6, 0.35};
+        double[] y = {0.65, 0.6, 0.4, 0.5};
         StdDraw.filledPolygon(x, y);
     }
 

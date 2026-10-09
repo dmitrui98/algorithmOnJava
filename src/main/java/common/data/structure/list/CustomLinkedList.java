@@ -53,9 +53,8 @@ public class CustomLinkedList<T> implements Iterable<T> {
         if (node == null || forInsert == null) {
             return;
         }
-        Node<T> temp = node.next;
+        forInsert.next = node.next;
         node.next = forInsert;
-        forInsert.next = temp;
     }
 
     public T removeFirst() {
@@ -121,20 +120,19 @@ public class CustomLinkedList<T> implements Iterable<T> {
             return 0;
         }
         Node<T> current = first;
-        Node<T> prev = first;
+        Node<T> prev = null;
         int countRemoved = 0;
         while (current != null) {
             if (current.item.equals(key)) {
                 countRemoved++;
-                if (current == prev) {
-                    first = first.next;
-                    prev = first;
+                if (current == first) {
+                    removeFirst();
                 } else {
                     prev.next = current.next;
+                    current = prev;
                 }
-            } else {
-                prev = current;
             }
+            prev = current;
             current = current.next;
         }
         return countRemoved;
@@ -160,7 +158,9 @@ public class CustomLinkedList<T> implements Iterable<T> {
         }
         int max = (Integer) first.item;
         for (T item : this) {
-            Integer intItem = (Integer) item;
+            if (!(item instanceof Integer intItem)) {
+                return 0;
+            }
             if (intItem > max) {
                 max = intItem;
             }
@@ -217,8 +217,11 @@ public class CustomLinkedList<T> implements Iterable<T> {
         Node<T> reverse = null; // первый узел результирующего обращенного списка
         while (start != null) {
             Node<T> next = start.next; // второй узел (остатка) первого списка
-            start.next = reverse;
-            reverse = start;
+            {
+                // вставка в начало
+                start.next = reverse;
+                reverse = start;
+            }
             start = next;
         }
         first = reverse;

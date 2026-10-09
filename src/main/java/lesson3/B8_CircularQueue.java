@@ -4,7 +4,7 @@ import common.data.structure.queue.CircularQueue;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * Упражение 1.3.29. Кольцевой связный список, очередь.
+ * Упражнение 1.3.29. Кольцевой связный список, очередь.
  * Использовать только ссылку на last
  */
 public class B8_CircularQueue {

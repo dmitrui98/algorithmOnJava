@@ -6,7 +6,14 @@ import edu.princeton.cs.algs4.StdOut;
 import static util.ArrayUtil.print;
 
 /**
- * Упражнение 1.3.20
+ * Упражнение
+ * 1.3.20 (removeAt),
+ * 1.3.21 (find),
+ * 1.3.24 (removeAfter)
+ * 1.3.25 (insertAfter)
+ * 1.3.26 (removeAll)
+ * 1.3.27 (max)
+ * 1.3.28 (maxRecursive)
  * Напишите метод delete() который принимает k и удаляет из связного списка k-й элемент, если он существует
  */
 public class B7_CustomLinkedList {
@@ -17,9 +24,9 @@ public class B7_CustomLinkedList {
         // instance.testFind();
         // instance.testRemoveAfter();
         // instance.testInsertAfter();
-        //instance.testRemoveAll();
-        //instance.testMax();
-        //instance.testMaxRecursive();
+        // instance.testRemoveAll();
+        // instance.testMax();
+        instance.testMaxRecursive();
     }
 
     private void testMaxRecursive() {

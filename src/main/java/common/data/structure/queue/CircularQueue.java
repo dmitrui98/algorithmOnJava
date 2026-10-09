@@ -5,7 +5,7 @@ import common.data.structure.util.base.QueueInterface;
 import java.util.Iterator;
 
 /**
- * Упражение 1.3.29. Кольцевой связный список, очередь.
+ * Упражнение 1.3.29. Кольцевой связный список, очередь.
  * Использовать только ссылку на last
  */
 public class CircularQueue<T> implements QueueInterface<T> {

@@ -4,12 +4,14 @@ import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
+/**
+ * Упражнение 1.2.10
+ */
 public class C5_VisualCounter {
     private final int n; // максимальное количество операций
     private final int max; // максимальное значение для счетчика
     private int count = 0;
     private int countOperations = 0;
-    private double y = 20;
 
     public C5_VisualCounter(int n, int max) {
         this.n = n;

@@ -4,7 +4,10 @@ import util.ArrayUtil;
 
 import static edu.princeton.cs.algs4.StdOut.println;
 
-public class HistogramTask {
+/**
+ * 1.1.15
+ */
+public class A15_HistogramTask {
 
     public static void main(String[] args) {
         int border = 10;

@@ -5,7 +5,10 @@ import util.ArrayUtil;
 import static edu.princeton.cs.algs4.StdOut.printf;
 import static edu.princeton.cs.algs4.StdOut.println;
 
-public class ArrayTranspositionTask {
+/**
+ * 1.1.13
+ */
+public class A13_ArrayTranspositionTask {
     public static void main(String[] args) {
         int m = 5;
         int n = 10;

@@ -1,9 +1,12 @@
 package lesson2;
 
+import algoritm.Euclid;
+import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
-import lesson1.Euclid;
+import lesson1.A24_Euclid;
 
 /**
+ * Упражнение 1.2.16, 1.2.17
  * Операции над рациональными числами
  */
 public class C8_Rational implements Comparable<C8_Rational> {
@@ -16,30 +19,44 @@ public class C8_Rational implements Comparable<C8_Rational> {
     }
 
     public C8_Rational plus(C8_Rational b) {
+        C8_Rational a = simplify();
+        b = b.simplify();
+        long lcm = a.denominator / Euclid.greatestCommonDivider(a.denominator, b.denominator) * b.denominator;
         return new C8_Rational(
-            numerator * b.denominator + b.numerator * denominator,
-            denominator * b.denominator
+            a.numerator * (lcm / a.denominator) + b.numerator * (lcm / b.denominator),
+            lcm
         );
     }
 
     public C8_Rational minus(C8_Rational b) {
+        C8_Rational a = simplify();
+        b = b.simplify();
+        long lcm = a.denominator / Euclid.greatestCommonDivider(a.denominator, b.denominator) * b.denominator;
         return new C8_Rational(
-            numerator * b.denominator - b.numerator * denominator,
-            denominator * b.denominator
+            a.numerator * (lcm / a.denominator) - b.numerator * (lcm / b.denominator),
+            lcm
         );
     }
 
     public C8_Rational multiply(C8_Rational b) {
+        C8_Rational a = simplify();
+        b = b.simplify();
+        long gcd1 = Euclid.greatestCommonDivider(a.numerator, b.denominator);
+        long gcd2 = Euclid.greatestCommonDivider(b.numerator, a.denominator);
         return new C8_Rational(
-            numerator * b.numerator,
-            denominator * b.denominator
+            a.numerator / gcd1 * (b.numerator / gcd2),
+            a.denominator / gcd2 * (b.denominator / gcd1)
         );
     }
 
     public C8_Rational divide(C8_Rational b) {
+        C8_Rational a = simplify();
+        b = b.simplify();
+        long gcd1 = Euclid.greatestCommonDivider(a.numerator, b.numerator);
+        long gcd2 = Euclid.greatestCommonDivider(a.denominator, b.denominator);
         return new C8_Rational(
-            numerator * b.denominator,
-            denominator * b.numerator
+            a.numerator / gcd1 * (b.denominator / gcd2),
+            a.denominator / gcd2 * (b.numerator / gcd1)
         );
     }
 
@@ -89,5 +106,20 @@ public class C8_Rational implements Comparable<C8_Rational> {
 
         StdOut.printf("%s; %s plus: %s\n", r1, r4, r1.plus(r4));
         StdOut.printf("%s; %s minus: %s\n", r1, r4, r1.minus(r4));
+        r1 = new C8_Rational(1, 6);
+        r2 = new C8_Rational(1, 4);
+        StdOut.printf("%s; %s plus: %s\n", r1, r2, r1.plus(r2));
+
+        StdOut.print("Input A(a/b): ");
+        String[] s = StdIn.readLine().split("/");
+        r1 = new C8_Rational(Long.parseLong(s[0]), Long.parseLong(s[1]));
+
+        StdOut.print("Input B(a/b): ");
+        s = StdIn.readLine().split("/");
+        r2 = new C8_Rational(Long.parseLong(s[0]), Long.parseLong(s[1]));
+        StdOut.println("Plus: " + r1.plus(r2));
+        StdOut.println("Minus: " + r1.minus(r2));
+        StdOut.println("Multiply: " + r1.multiply(r2));
+        StdOut.println("Divide: " + r1.divide(r2));
     }
 }

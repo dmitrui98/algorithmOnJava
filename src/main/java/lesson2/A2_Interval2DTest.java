@@ -2,6 +2,9 @@ package lesson2;
 
 import edu.princeton.cs.algs4.*;
 
+/**
+ * Листинг 1.2.4
+ */
 public class A2_Interval2DTest {
 
     public static void main(String[] args) {

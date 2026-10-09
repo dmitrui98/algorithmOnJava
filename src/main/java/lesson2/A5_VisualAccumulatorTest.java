@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 import common.VisualAccumulator;
 
-public class B2_VisualAccumulatorTest {
+public class A5_VisualAccumulatorTest {
 
     /**
      * !!! Код работает неверно
@@ -15,7 +15,7 @@ public class B2_VisualAccumulatorTest {
         int count = Integer.parseInt(StdIn.readLine());
         VisualAccumulator a = new VisualAccumulator(count, 1.0);
         for (int i = 0; i < count; i++) {
-            a.addDataValue(StdRandom.uniformInt(100));
+            a.addDataValue(StdRandom.uniformDouble());
         }
         StdOut.println(a);
     }

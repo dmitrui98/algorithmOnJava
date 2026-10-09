@@ -154,24 +154,4 @@ public class BinarySearch {
         }
         return result;
     }
-
-    /**
-     * TODO 1.1.29
-     */
-
-    public static Integer searchCount(int key, int[] sortedArray) {
-        int left = 0;
-        int right = sortedArray.length - 1;
-        while (left <= right) {
-            int middle = left + (right - left) / 2;
-            if (key < sortedArray[middle]) {
-                right = middle - 1;
-            } else if (key > sortedArray[middle]) {
-                left = middle + 1;
-            } else {
-                return middle;
-            }
-        }
-        return null;
-    }
 }

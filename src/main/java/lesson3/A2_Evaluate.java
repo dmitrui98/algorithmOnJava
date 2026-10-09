@@ -6,30 +6,27 @@ import edu.princeton.cs.algs4.StdOut;
 import java.util.Stack;
 import java.util.stream.Stream;
 
-import static util.BaseConstants.END_MARKER;
-
 /**
  * Листинг 1.3.4
  * Двухстековый алгоритм Дейкстры для вычисления выражения
- * ( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )
+ *
  * 101.0
- * ( ( 1 + sqrt ( 5.0 ) ) / 2.0 )
- * 1.618033...
+ * ( ( 1 + sqrt ( 16.0 ) ) / 2.0 )
+ * 2.5
+ * ( 1 + ( ( 6 - 3 ) * ( 4 * 5 ) ) )
+ * 61.0
  */
 public class A2_Evaluate {
 
     public static void main(String[] args) {
         StdOut.println("Введите выражение:");
         Stack<Double> values = new Stack<>();
-        Stack<Operand> operands = new Stack<>();
+        Stack<Operator> operators = new Stack<>();
         String s;
-        while (true) {
+        while (!StdIn.isEmpty()) {
             s = StdIn.readString();
-            if (s.equals(END_MARKER)) {
-                break;
-            }
-            Operand operand = Operand.getEnum(s);
-            switch (operand) {
+            Operator operator = Operator.getEnum(s);
+            switch (operator) {
                 case OPEN_BRACKET:
                     // do nothing
                     break;
@@ -38,10 +35,10 @@ public class A2_Evaluate {
                 case MULTIPLY:
                 case DIVIDE:
                 case SQRT:
-                    operands.push(operand);
+                    operators.push(operator);
                     break;
                 case CLOSE_BRACKET:
-                    values.push(calculate(values, operands.pop()));
+                    values.push(calculate(values, operators.pop()));
                     break;
                 default:
                     values.push(Double.parseDouble(s));
@@ -51,19 +48,19 @@ public class A2_Evaluate {
         StdOut.println("Result: " + values.pop());
     }
 
-    private static double calculate(Stack<Double> values, Operand operand) {
+    private static double calculate(Stack<Double> values, Operator operand) {
         double v = values.pop();
         switch (operand) {
-            case PLUS -> v = v + values.pop();
-            case MINUS -> v = v - values.pop();
-            case MULTIPLY -> v = v * values.pop();
-            case DIVIDE -> v = v / values.pop();
+            case PLUS -> v = values.pop() + v;
+            case MINUS -> v = values.pop() - v;
+            case MULTIPLY -> v = values.pop() * v;
+            case DIVIDE -> v = values.pop() / v;
             case SQRT -> v = Math.sqrt(v);
         }
         return v;
     }
 
-    enum Operand {
+    enum Operator {
         DEFAULT(""),
         OPEN_BRACKET("("),
         CLOSE_BRACKET(")"),
@@ -75,12 +72,12 @@ public class A2_Evaluate {
         ;
         final String value;
 
-        Operand(String value) {
+        Operator(String value) {
             this.value = value;
         }
 
-        static Operand getEnum(String value) {
-            return Stream.of(Operand.values())
+        static Operator getEnum(String value) {
+            return Stream.of(Operator.values())
                 .filter((it) -> it.value.equals(value))
                 .findFirst()
                 .orElse(DEFAULT);

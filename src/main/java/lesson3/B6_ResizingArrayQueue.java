@@ -32,11 +32,8 @@ public class B6_ResizingArrayQueue {
         StdOut.println();
 
         ResizingArrayQueueOfStrings queue = new ResizingArrayQueueOfStrings();
-        while (true) {
+        while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
-            if (s.equals(END_MARKER)) {
-                break;
-            }
             queue.enqueue(s);
         }
         StdOut.println("Итератор: ");

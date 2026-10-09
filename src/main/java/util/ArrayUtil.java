@@ -63,7 +63,7 @@ public class ArrayUtil {
 
     public static void printArray(int[] a) {
         for (int anInt : a) {
-            printf("%8s", anInt);
+            printf("%3s", anInt);
         }
         println();
     }

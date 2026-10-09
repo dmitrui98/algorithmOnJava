@@ -3,43 +3,50 @@ package lesson3;
 import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
+import util.BaseConstants;
 
 import static util.BaseConstants.*;
 
 /**
+ * Упражнение 1.3.11.
  * Напишите программу, которая принимает из стандартного ввода постфиксное выражение,
  * вычисляет его и выводит результат
- * Input: ( 2 + ( ( 3 + 4 ) * ( 5 * 6 ) ) )   2 3 4 + 5 6 * * +
- * Output: 212
+ * 3 4 5 + *
+ * 27
+ * 1 2 3 4 5 * + 6 * * +
+ * 277
+ * 7 16 16 16 * * * 5 16 16 * * 3 16 * 1 + + +
+ * 30001
+ * 7 16 * 5 + 16 * 3 + 16 * 1 +
+ * 30001
+ *  Input: ( 2 + ( ( 3 + 4 ) * ( 5 * 6 ) ) )   2 3 4 + 5 6 * * +
+ *  Output: 212
  */
 public class B4_EvaluatePostfix {
 
     public static void main(String[] args) {
-        StdOut.println("Введите выражение: ");
-        Stack<Double> stack = new Stack<>();
-        while (true) {
+        StdOut.println("Введите постфиксное выражение через пробел:");
+        Stack<Integer> values = new Stack<>();
+        while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
-            if (s.equals(END_MARKER)) {
-                break;
-            }
-            if (OPERANDS.contains(s)) {
-                double first = stack.pop();
-                double second = stack.pop();
-                switch (s) {
-                    case PLUS -> stack.push(first + second);
-                    case MULTIPLY -> stack.push(first * second);
-//                    case MINUS:
-//                        stack.push(first - second);
-//                        break;
-//                    case DIVIDE:
-//                        stack.push(first / second);
-//                        break;
-                    default -> throw new UnsupportedOperationException("operand not supported");
-                }
+            if (BaseConstants.OPERATORS.contains(s)) {
+                Integer second = values.pop();
+                Integer first = values.pop();
+                values.push(evaluate(first, second, s));
             } else {
-                stack.push(Double.parseDouble(s));
+                values.push(Integer.parseInt(s));
             }
         }
-        StdOut.println(stack.pop());
+        StdOut.println(values.pop());
+    }
+
+    private static Integer evaluate(Integer first, Integer second, String operator) {
+        return switch (operator) {
+            case "+" -> first + second;
+            case "-" -> first - second;
+            case "*" -> first * second;
+            case "/" -> first / second;
+            default -> throw new IllegalArgumentException("Operator not supported");
+        };
     }
 }

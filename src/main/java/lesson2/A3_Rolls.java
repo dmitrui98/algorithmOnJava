@@ -5,6 +5,10 @@ import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
+/**
+ * Листинг 1.2.3.
+ * Моделирование n бросаний игральной кости
+ */
 public class A3_Rolls {
 
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
 package lesson3;
 
 import common.data.structure.stack.ResizingArrayStack;
+import edu.princeton.cs.algs4.ResizingArrayQueue;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -14,6 +15,7 @@ import static util.BaseConstants.END_MARKER;
 public class A4_ResizingArrayStack {
 
     public static void main(String[] args) {
+        //ResizingArrayQueue
         ResizingArrayStack<String> s = new ResizingArrayStack<>(1);
         int i = 0;
         StringBuilder sb = new StringBuilder();
@@ -32,7 +34,7 @@ public class A4_ResizingArrayStack {
         StdOut.print(sb.toString());
         StdOut.println("(в стеке осталось " + s.size() + ")");
         for (String s1 : s) {
-            StdOut.println("Элемент стэка: " + s1);
+            StdOut.println("Элемент стека: " + s1);
         }
     }
 }

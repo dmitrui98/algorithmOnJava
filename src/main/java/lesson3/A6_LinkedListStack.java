@@ -8,7 +8,7 @@ import static util.BaseConstants.END_MARKER;
 
 /**
  * Листинг 1.3.6. Алгоритм 1.2
- * Стэк. Реализация на основе связного списка
+ * Стек. Реализация на основе связного списка
  *
  * to be or not to - be - - that - - - is
  * Result: to be not that or be; stack size: 2
@@ -34,7 +34,7 @@ public class A6_LinkedListStack {
         StdOut.print(sb.toString());
         StdOut.println("(в стеке осталось " + s.size() + ")");
         for (String s1 : s) {
-            StdOut.println("Элемент стэка: " + s1);
+            StdOut.println("Элемент стека: " + s1);
         }
     }
 }

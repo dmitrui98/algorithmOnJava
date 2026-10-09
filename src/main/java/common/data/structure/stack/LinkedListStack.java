@@ -6,11 +6,11 @@ import java.util.Iterator;
 
 /**
  * Листинг 1.3.6. Алгоритм 1.2
- * Стэк. Реализация на основе связного списка
+ * Стек. Реализация на основе связного списка
  */
 public class LinkedListStack<T> implements Iterable<T> {
     /**
-     * Верхушка стэка
+     * Верхушка стека
      */
     private Node<T> first;
 

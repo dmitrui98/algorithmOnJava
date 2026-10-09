@@ -7,7 +7,10 @@ import java.util.List;
 
 import static edu.princeton.cs.algs4.StdOut.printf;
 
-public class PrintFormatTask {
+/**
+ * 1.1.21
+ */
+public class A21_PrintFormatTask {
 
     /*
         Input:
@@ -20,9 +23,9 @@ public class PrintFormatTask {
     public static void main(String[] args) {
         String s = "undefined";
         List<String> lines = new ArrayList<>();
-        while (!s.isBlank()) {
+        while (s != null && !s.isBlank()) {
             s = StdIn.readLine();
-            if (!s.isBlank()) {
+            if (s != null && !s.isBlank()) {
                 lines.add(s);
             }
         }

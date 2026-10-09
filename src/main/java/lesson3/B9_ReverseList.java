@@ -6,14 +6,14 @@ import edu.princeton.cs.algs4.StdOut;
 import static util.ArrayUtil.print;
 
 /**
- * Exercise 1.3.30
+ * Exercise 1.3.30 (reverseList)
  * Reverse list and return first node of result list
  */
 public class B9_ReverseList {
 
     public static void main(String[] args) {
         B9_ReverseList instance = new B9_ReverseList();
-        instance.testReverseList();
+        // instance.testReverseList();
         instance.testReverseListRecursive();
     }
 

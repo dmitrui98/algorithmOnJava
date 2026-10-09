@@ -5,7 +5,7 @@ import util.ArrayUtil;
 import static edu.princeton.cs.algs4.StdOut.printf;
 import static edu.princeton.cs.algs4.StdOut.println;
 
-public class RandomBoolArrayTask {
+public class A11_RandomBoolArrayTask {
 
     public static void main(String[] args) {
         boolean[][] a = ArrayUtil.getBoolRandomArray(10, 20);

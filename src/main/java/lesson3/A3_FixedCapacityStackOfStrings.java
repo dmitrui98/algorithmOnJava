@@ -15,7 +15,7 @@ public class A3_FixedCapacityStackOfStrings {
 
     public static void main(String[] args) {
         FixedCapacityStackOfStrings s = new FixedCapacityStackOfStrings(10);
-        while (true) {
+        while (!StdIn.isEmpty()) {
             String item = StdIn.readString();
             if (END_MARKER.equals(item)) {
                 break;
@@ -26,7 +26,8 @@ public class A3_FixedCapacityStackOfStrings {
                 StdOut.print(s.pop() + " ");
             }
             if (s.isFull()) {
-                StdOut.printf("Стэк польностью заполнен: %s элементов", s.size());
+                StdOut.printf("Стек полностью заполнен: %s элементов", s.size());
+                break;
             }
         }
         StdOut.println("(в стеке осталось " + s.size() + ")");

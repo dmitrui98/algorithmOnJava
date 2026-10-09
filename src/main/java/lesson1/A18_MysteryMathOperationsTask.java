@@ -2,14 +2,18 @@ package lesson1;
 
 import static edu.princeton.cs.algs4.StdOut.println;
 
-public class MysteryMathOperationsTask {
+/**
+ * 1.1.18
+ */
+public class A18_MysteryMathOperationsTask {
 
     /**
      * Как понять, почему результатом рекурсии является результат умножения или возведение в степень??
      */
     public static void main(String[] args) {
-        println(magicDegree(2, 25));
+        println(magicDegree(2, 20));
         println(magicMultiply(2, 25));
+        println("multiply 3, 11: " + magicMultiply(3, 11));
     }
 
     private static int magicDegree(int a, int b) {

@@ -2,7 +2,10 @@ package lesson1;
 
 import static edu.princeton.cs.algs4.StdOut.println;
 
-public class Binomial {
+/**
+ * 1.1.27
+ */
+public class A27_Binomial {
 
     public static void main(String[] args) {
         println(binomial(10, 5, 0.5));

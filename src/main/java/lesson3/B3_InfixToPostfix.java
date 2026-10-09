@@ -4,10 +4,10 @@ import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-import static util.BaseConstants.END_MARKER;
-import static util.BaseConstants.OPERANDS;
+import static util.BaseConstants.OPERATORS;
 
 /**
+ * Упражнение 1.3.10.
  * Преобразование арифметического выражения из инфиксного вида в постфиксный
  * Input: ( 2 + ( ( 3 + 4 ) * ( 5 * 6 ) ) )
  * Output: 2 3 4 + 5 6 * * +
@@ -20,12 +20,9 @@ public class B3_InfixToPostfix {
     public static void main(String[] args) {
         StdOut.println("Введите выражение: ");
         Stack<String> stack = new Stack<>();
-        while (true) {
+        while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
-            if (s.equals(END_MARKER)) {
-                break;
-            }
-            if (OPERANDS.contains(s)) {
+            if (OPERATORS.contains(s)) {
                 stack.push(s);
             } else if (s.equals(")")) {
                 StdOut.print(stack.pop() + " ");

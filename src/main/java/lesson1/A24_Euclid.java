@@ -4,7 +4,10 @@ import edu.princeton.cs.algs4.StdIn;
 
 import static edu.princeton.cs.algs4.StdOut.*;
 
-public class Euclid {
+/**
+ * 1.1.24
+ */
+public class A24_Euclid {
 
     public static void main(String[] args) {
         print("Input A: ");

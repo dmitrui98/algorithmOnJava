@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
+ * Листинг 1.3.1
  * n = 10
  * 100
  * 99
@@ -19,7 +20,7 @@ import edu.princeton.cs.algs4.StdOut;
  * <br/>
  * Result:
  * Среднее: 100.60
- * Среднеквадратичное откланение: 10.51
+ * Среднеквадратичное отклонение: 10.51
  */
 public class A1_Stats {
 
@@ -44,6 +45,6 @@ public class A1_Stats {
         double std = Math.sqrt(sum / (n - 1));
 
         StdOut.printf("Среднее: %.2f\n", mean);
-        StdOut.printf("Среднеквадратичное откланение: %.2f\n", std);
+        StdOut.printf("Среднеквадратичное отклонение: %.2f\n", std);
     }
 }

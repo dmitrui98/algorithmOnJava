@@ -5,18 +5,15 @@ import edu.princeton.cs.algs4.StdIn;
 import static edu.princeton.cs.algs4.StdOut.print;
 import static edu.princeton.cs.algs4.StdOut.println;
 
-public class MathLgTask {
+/**
+ * 1.1.14
+ */
+public class A14_MathLgTask {
 
     public static void main(String[] args) {
-//        print("Input N for lg: ");
-//        int n = StdIn.readInt();
-//        println(lg(n));
-
-        print("Input N for ln(N!): ");
+        print("Input N for lg: ");
         int n = StdIn.readInt();
-        println(ln(n));
-
-
+        println(lg(n));
     }
 
     /**
@@ -33,16 +30,5 @@ public class MathLgTask {
             }
         }
         return degree;
-    }
-
-    /**
-     * Рекурсивное вычисление ln(N!)
-     */
-    private static double ln(int n) {
-        if (n <= 1) {
-            return 0;
-        }
-        double e = Math.E; // и че с этим делать??
-        return ln(n) + ln(n - 1);
     }
 }

@@ -80,12 +80,12 @@ public class CustomDoubleLinkedList<T> implements Iterable<T> {
         if (isEmpty()) {
             return null;
         }
+        DoubleNode<T> removed = first;
         if (last == first) {
             last = null;
             first = null;
-            return null;
+            return removed;
         }
-        DoubleNode<T> removed = first;
         first = first.next;
         first.prev = null;
         return removed;
@@ -95,12 +95,12 @@ public class CustomDoubleLinkedList<T> implements Iterable<T> {
         if (isEmpty()) {
             return null;
         }
+        DoubleNode<T> removed = last;
         if (last == first) {
             last = null;
             first = null;
-            return null;
+            return removed;
         }
-        DoubleNode<T> removed = last;
         last = last.prev;
         last.next = null;
         return removed;
