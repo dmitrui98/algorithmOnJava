@@ -13,6 +13,25 @@ public class LinkedListQueue<T> implements QueueInterface<T> {
     private Node<T> last; // самый свежий узел
     private int n;
 
+    public LinkedListQueue() {
+    }
+
+    public LinkedListQueue(QueueInterface<T> queue) {
+        // способ через итератор
+        /*for (T item : queue) {
+            this.enqueue(item);
+        }*/
+        QueueInterface<T> temp = new LinkedListQueue<>();
+        while (!queue.isEmpty()) {
+            T item = queue.dequeue();
+            this.enqueue(item);
+            temp.enqueue(item);
+        }
+        while (!temp.isEmpty()) {
+            queue.enqueue(temp.dequeue());
+        }
+    }
+
     @Override
     public boolean isEmpty() {
         return first == null;

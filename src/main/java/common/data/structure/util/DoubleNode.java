@@ -1,8 +1,7 @@
 package common.data.structure.util;
 
 public class DoubleNode<T> extends Node<T> {
-    public DoubleNode<T> prev;
-    public DoubleNode<T> next;
+    public Node<T> prev;
 
     public DoubleNode() {
     }

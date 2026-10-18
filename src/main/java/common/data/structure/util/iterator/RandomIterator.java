@@ -17,15 +17,18 @@ public class RandomIterator<T> implements Iterator<T> {
             a[i] = first.item;
             first = first.next;
         }
-        // перемешать массив
-        Random r = ThreadLocalRandom.current(); // безопасный рандом для многопоточной среды
-        for (int i = size - 1; i > 0; i--) {
-            int j = r.nextInt(i + 1);
-            T temp = a[i];
-            a[i] = a[j];
-            a[j] = temp;
+        shuffleArray(a);
+        this.randomArray = a;
+        this.size = size;
+    }
+
+    public RandomIterator(T[] array, int size) {
+        @SuppressWarnings("unchecked")
+        T[] a = (T[]) new Object[size];
+        for (int i = 0; i < size; i++) {
+            a[i] = array[i];
         }
-        // Collections.shuffle(Arrays.asList(a));
+        shuffleArray(a);
         this.randomArray = a;
         this.size = size;
     }
@@ -38,5 +41,17 @@ public class RandomIterator<T> implements Iterator<T> {
     @Override
     public T next() {
         return randomArray[currentIndex++];
+    }
+
+    private <T> void shuffleArray(T[] a) {
+        // безопасный рандом для многопоточной среды
+        Random r = ThreadLocalRandom.current();
+        for (int i = a.length - 1; i > 0; i--) {
+            int j = r.nextInt(i + 1);
+            T temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+        // Collections.shuffle(Arrays.asList(a));
     }
 }

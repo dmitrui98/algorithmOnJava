@@ -89,6 +89,6 @@ public class B10_DoubleList {
         list2.insertBefore(list2.getFirst(), "b");
         list2.insertBefore(list2.getLast(), "a");
         list2.insertAfter(list2.getLast(), "b");
-        print(list2);
+        print(list2); // b 20 a 30 31 49 50 a 70 b
     }
 }
